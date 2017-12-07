@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as translation from '../../i18n/translations';
+import { default as translation } from '../../i18n';
 
 @Injectable()
 export class TranslatorService {
@@ -9,7 +9,7 @@ export class TranslatorService {
   private default_lang = 'en';
 
   constructor() {
-    this.setTranslation(translation.default);
+    this.setTranslation(translation);
     this.setLanguage(this.default_lang);
   }
 
