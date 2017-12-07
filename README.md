@@ -1,27 +1,46 @@
-# NgTranslation
+# Angular Multilingual Example
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.4.
+This project is to show a simple way to handle multilingual in Angular application. I personally prefer an easy way to accomplish the task.
 
-## Development server
+## Translation Table
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Just add new translations to ```src/app/i18n/langs``` directory and import it to ```src/app/i18n/translations.ts```. See ```src/app/i18n/langs/en-US.ts``` for example.
 
-## Code scaffolding
+## Usage
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#### As Pipe
 
-## Build
+```
+{{ 'hello_world' | translate }}
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+#### As Service
 
-## Running unit tests
+```
+constructor(private translator: TranslatorService) {}
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+translate() {
+  const result = this.translator.translate('hello_world');
+}
+```
 
-## Running end-to-end tests
+## Service Methods
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+*setLanguage(id: string)*
 
-## Further help
+To set language. Parameter id is defined as in ```src/app/i18n/translations.ts```.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+*getLanguage()*
+
+To get current language.
+
+*translate(text: string)*
+
+To translate the given text. If not found in translation table, text is returned.
+
+## Alternatives
+
+You may be interested in other options of doing multilingual. AFAIK, here is the list of those.
+
+* [@ngx-translate](https://www.npmjs.com/package/@ngx-translate/core)
+* [Simple Language Translation in Angular 2](https://scotch.io/tutorials/simple-language-translation-in-angular-2-part-1)

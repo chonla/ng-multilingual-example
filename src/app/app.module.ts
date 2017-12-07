@@ -3,16 +3,24 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { TranslatePipe } from './pipes/translate.pipe';
+import { TranslatorService } from './services/translator/translator.service';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TranslatePipe
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [TranslatorService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  constructor(private ts: TranslatorService) {
+    ts.setLanguage('en');
+  }
+}

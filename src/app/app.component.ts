@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, LOCALE_ID } from '@angular/core';
+import { TranslatorService } from './services/translator/translator.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+
+  constructor(private trans: TranslatorService) {}
+
+  changeLocale(l: string): void {
+    this.trans.setLanguage(l);
+  }
+
+  currentLocale(): string {
+    return this.trans.getLanguage();
+  }
 }
