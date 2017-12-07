@@ -10,11 +10,11 @@ export class AppComponent {
 
   constructor(private trans: TranslatorService) {}
 
-  changeLocale(l: string): void {
+  changeLanguage(l: string): void {
     this.trans.setLanguage(l);
   }
 
-  currentLocale(): string {
+  currentLanguage(): string {
     return this.trans.getLanguage();
   }
 }

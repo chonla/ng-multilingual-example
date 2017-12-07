@@ -1,6 +1,6 @@
 <div>{{ 'translate_me' | translate }}</div>
 <div>{{ 'hello_world' | translate }}</div>
-<div>Current Locale: {{ currentLocale() }}</div>
-<button (click)="changeLocale('th-TH')">ไทย</button>
-<button (click)="changeLocale('en-US')">ENGLISH</button>
-<button (click)="changeLocale('zh-CN')">中文</button>
+<div>Current Locale: {{ currentLanguage() }}</div>
+<button (click)="changeLanguage('th')">ไทย</button>
+<button (click)="changeLanguage('en')">ENGLISH</button>
+<button (click)="changeLanguage('zh')">中文</button>
